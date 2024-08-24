@@ -11,7 +11,7 @@ function GuessInput({ handleAddWord, state, answer, wordList }) {
         onSubmit={(e) => {
           e.preventDefault();
 
-          if (input.length !== 5) return;
+
           const guessInput = input.toUpperCase();
 
           console.info({ guessInput });
@@ -23,9 +23,11 @@ function GuessInput({ handleAddWord, state, answer, wordList }) {
         <label htmlFor="guess-input">Enter guess:</label>
         {state === 'playing' && (
           <input
+            required
             id='guess-input'
             type="text"
             pattern="[A-Za-z]{5}"
+            title="5 letters"
             value={input}
             onChange={(e) => {
               setInput(e.target.value);
